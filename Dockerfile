@@ -13,6 +13,7 @@ COPY --from=builder /go/src/github.com/openshift/elasticsearch-operator/bin/elas
 COPY --from=builder /go/src/github.com/openshift/elasticsearch-operator/files/ /etc/elasticsearch-operator/files/
 COPY --from=builder /go/src/github.com/openshift/elasticsearch-operator/manifests /manifests
 RUN rm /manifests/art.yaml && \
+    rm -rf /manifests/5.0 && \
     mkdir /tmp/ocp-eo && \
     chmod og+w /tmp/ocp-eo
 
